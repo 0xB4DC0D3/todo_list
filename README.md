@@ -1,2 +1,2 @@
-# todo_list
+# ToDo list
 A task for a university practice
