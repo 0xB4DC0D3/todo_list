@@ -1,7 +1,10 @@
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom/client"
+import { StrictMode } from "react"
+import "./index.css"
+import App from "app"
 
-function App() {
-  return <h1>Test</h1>;
-}
-
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(<App />);
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);

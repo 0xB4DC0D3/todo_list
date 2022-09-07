@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintWebpackPlugin = require('eslint-webpack-plugin');
+const TsConfigPathsWebpackPlugin = require('tsconfig-paths-webpack-plugin');
 
 /**@type {import('webpack').Configuration}*/
 const config = {
@@ -14,7 +15,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.ts(x)$/i,
+        test: /\.(ts|tsx)$/i,
         exclude: /node_modules/,
         use: [
           {
@@ -35,6 +36,11 @@ const config = {
           }
         ]
       },
+      {
+        test: /\.css$/i,
+        exclude: /node_modules/,
+        use: ['style-loader', 'css-loader', 'postcss-loader']
+      }
     ]
   },
   plugins: [
@@ -47,7 +53,11 @@ const config = {
     })
   ],
   stats: "errors-warnings",
-  target: "web"
+  target: "web",
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
+    plugins: [new TsConfigPathsWebpackPlugin()]
+  }
 };
 
 module.exports = config;
