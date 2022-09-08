@@ -1,4 +1,4 @@
-import { fetchMockTodo } from "./fetchMockTodo";
+import { fetchMockTodo } from "./fetchMockTodo"
 
 test("fetchMockTodo", async () => {
   let [todo] = (await fetchMockTodo(2, 5)).todos;
